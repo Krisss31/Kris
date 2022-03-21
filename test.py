@@ -1,5 +1,3 @@
-!pip install streamlit
-
 import streamlit as st
 
 def file_selector(self):
