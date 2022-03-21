@@ -4,3 +4,10 @@ scikit-learn==1.0.2
 streamlit==1.7.0
 lst==0.2.11
 scipy==1.7.3
+
+
+pip install streamlit
+pip install scikit-learn
+pip install matplotlib
+
+streamlit run test.py
