@@ -1,5 +1,3 @@
-!pip install streamlit -q
-
 import streamlit as st 
 import numpy as np 
 
