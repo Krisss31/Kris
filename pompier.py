@@ -13,7 +13,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.metrics import accuracy_score
 
-
+st.title("pompier')
 
 def file_selector(self):
    file = st.sidebar.file_uploader("Choose a pikle file", type="pkl")
