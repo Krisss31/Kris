@@ -21,4 +21,4 @@ def file_selector(self):
       data = pd.read_csv(file)
       return data
    else:
-      st.text("Please upload a csv file"
+      st.text("Please upload a csv file")
