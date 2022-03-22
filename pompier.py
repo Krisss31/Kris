@@ -21,9 +21,7 @@ def file_selector(self):
       data = pd.read_csv(file)
       return data
    else:
-      st.text("Please upload a csv file")
-st.file_selector(df)
-      
+      st.text("Please upload a csv file")      
       
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
