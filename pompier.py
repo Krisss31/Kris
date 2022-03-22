@@ -15,12 +15,14 @@ from sklearn.metrics import accuracy_score
 
 st.title("pompier")
 
-file = st.sidebar.file_uploader("Choose a CSV file", type="csv")
-if file is not None:
-   data = pd.read_csv(file)
-   return data
-else:
-      st.text("Please upload a csv file")      
+def file_selector(self):
+   file = st.sidebar.file_uploader("Choose a CSV file", type="csv")
+   if file is not None:
+      data = pd.read_csv(file)
+      return data
+   else:
+      st.text("Please upload a csv file")   
+      
       
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
