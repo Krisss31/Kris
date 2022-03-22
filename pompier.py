@@ -16,16 +16,9 @@ from sklearn.metrics import accuracy_score
 st.title("pompier")
 
 def file_selector(self):
-   file = st.sidebar.file_uploader("Choose a pikle file", type="pkl")
+   file = st.sidebar.file_uploader("Choose a CSV file", type="csv")
    if file is not None:
-      df=pd.read_pickle(file)
-      return df
+      data = pd.read_csv(file)
+      return data
    else:
-      st.text("Please upload a pikle file")
-      
-def set_features(self):
-   self.features = st.multiselect("Please choose the features including target variable that go into the model", self.df.columns)
-
-# Set target column
-target = df.columns
-self.chosen_target = st.sidebar.selectbox("Please choose target column", (target))
+      st.text("Please upload a csv file"
