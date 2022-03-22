@@ -27,5 +27,5 @@ def set_features(self):
    self.features = st.multiselect("Please choose the features including target variable that go into the model", self.df.columns)
 
 # Set target column
-target_options = df.columns
-self.chosen_target = st.sidebar.selectbox("Please choose target column", (target_options))
+target = df.columns
+self.chosen_target = st.sidebar.selectbox("Please choose target column", (target))
