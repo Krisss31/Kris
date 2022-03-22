@@ -24,6 +24,8 @@ def file_selector(self):
       st.text("Please upload a pikle file")
 
 def set_features(self):
-   self.features = st.multiselect(‘Please choose the features including target variable that go into the model’, self.data.columns )
+   self.features = st.multiselect("Please choose the features including target variable that go into the model", self.data.columns )
    
-   
+# Set target column
+target_options = data.columns
+self.chosen_target = st.sidebar.selectbox("Please choose target column", (target_options))
