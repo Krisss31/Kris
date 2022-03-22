@@ -22,3 +22,8 @@ def file_selector(self):
       return df
    else:
       st.text("Please upload a pikle file")
+
+def set_features(self):
+   self.features = st.multiselect(‘Please choose the features including target variable that go into the model’, self.data.columns )
+   
+   
