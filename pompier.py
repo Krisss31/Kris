@@ -23,4 +23,4 @@ def file_selector(self):
    else:
       st.text("Please upload a csv file")
 
- st.file_selector(self)
+ st.file_selector()
