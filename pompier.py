@@ -16,7 +16,7 @@ from sklearn.metrics import accuracy_score
 
 
 def file_selector(self):
-   file = st.sidebar.file_uploader("Choose a pikle file", type="csv")
+   file = st.sidebar.file_uploader("Choose a pikle file", type="pkl")
    if file is not None:
       df=pd.read_pickle(file)
       return df
@@ -24,7 +24,7 @@ def file_selector(self):
       st.text("Please upload a pikle file")
 
 def set_features(self):
-   self.features = st.multiselect("Please choose the features including target variable that go into the model", self.data.columns )
+   self.features = st.multiselect("Please choose the features including target variable that go into the model", self.df.columns )
    
 # Set target column
 target_options = df.columns
