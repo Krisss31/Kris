@@ -23,7 +23,7 @@ def file_selector(self):
    else:
       st.text("Please upload a csv file")   
 
- df = file_selector(self)
+ data = file_selector(file)
       
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
