@@ -23,10 +23,10 @@ def file_selector():
    else:
       st.text("Please upload a csv file")   
 
-data = file_selector()
+df = file_selector()
       
-def set_features(data):
-   features = st.multiselect("Please choose the features including target variable that go into the model", data['columns'])
+def set_features(df):
+   features = st.multiselect("Please choose the features including target variable that go into the model", df.columns)
 
-features = set_features(data)
+features = set_features(df)
 
