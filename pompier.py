@@ -27,5 +27,7 @@ file = st.sidebar.file_uploader("Choose a CSV file", type="csv")
 data = file_selector(file)
       
 def set_features(self):
-   self.features = st.multiselect("Please choose the features including target variable that go into the model", self.data.columns )
+   self.features = st.multiselect("Please choose the features including target variable that go into the model", self.data.columns)
+
+self.features = set_features()
 
