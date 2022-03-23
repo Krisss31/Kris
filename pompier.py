@@ -15,7 +15,7 @@ from sklearn.metrics import accuracy_score
 
 st.title("pompier")
 
-def file_selector(self):
+def file_selector():
    file = st.sidebar.file_uploader("Choose a CSV file", type="csv")
    if file is not None:
       data = pd.read_csv(file)
@@ -23,10 +23,9 @@ def file_selector(self):
    else:
       st.text("Please upload a csv file")   
 
-file = st.sidebar.file_uploader("Choose a CSV file", type="csv")
 data = file_selector(file)
       
-def set_features(self):
+def set_features():
    self.features = st.multiselect("Please choose the features including target variable that go into the model", self.data.columns)
 
 self.features = set_features()
