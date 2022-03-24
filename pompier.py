@@ -23,31 +23,8 @@ def file_selector():
    else:
       st.text("Please upload a csv file")   
 
-df = file_selector()
-
-st.write(df)
-
-def set_features(self):
-   self.features = st.multiselect("Please choose the features including target variable that go into the model", self.columns )
-   
-df.feature = set_features(df)
-st.write(df.feature)
-
-def prepare_data(self, split_data, train_test):
-   # Reduce data size
-   data = self.data[self.features]
-   data = data.sample(frac = round(split_data/100,2))
+if st.sidebar.checkbox("Display data", False):
+    st.subheader("Show Mushroom dataset")
+    st.write(df)
 
 
-
-   # Impute nans with mean for numeris and most frequent for categoricals
-cat_imp = SimpleImputer(strategy="most_frequent")
-if len(data.loc[:,data.dtypes == 'object'].columns) != 0:
-   data.loc[:,data.dtypes == 'object'] = cat_imp.fit_transform(data.loc[:,data.dtypes == 'object'])
-   imp = SimpleImputer(missing_values = np.nan, strategy="mean")
-   data.loc[:,data.dtypes != 'object'] = imp.fit_transform(data.loc[:,data.dtypes != 'object'])
-
-   
-   # Set target column
-target_options = data.columns
-self.chosen_target = st.sidebar.selectbox("Please choose target column", (target_options))
