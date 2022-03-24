@@ -28,7 +28,7 @@ df = file_selector()
 st.write(df)
 
 def set_features(self):
-   features = st.multiselect("Please choose the features including target variable that go into the model", self.columns )
+   self.features = st.multiselect("Please choose the features including target variable that go into the model", self.columns )
    
-feature = set_features(df)
-st.write("You selected", feature)
+df.feature = set_features(df)
+st.write("You selected", df.feature)
