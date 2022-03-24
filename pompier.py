@@ -46,3 +46,8 @@ if len(data.loc[:,data.dtypes == 'object'].columns) != 0:
    data.loc[:,data.dtypes == 'object'] = cat_imp.fit_transform(data.loc[:,data.dtypes == 'object'])
    imp = SimpleImputer(missing_values = np.nan, strategy="mean")
    data.loc[:,data.dtypes != 'object'] = imp.fit_transform(data.loc[:,data.dtypes != 'object'])
+
+   
+   # Set target column
+target_options = data.columns
+self.chosen_target = st.sidebar.selectbox("Please choose target column", (target_options))
