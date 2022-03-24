@@ -37,6 +37,7 @@ df = df[features]
 st.write(df)
 
 @st.cache(persist=True)
+@st.cache(suppress_st_warning=True)
 def split(df):
    # Set target column
    target_options = df.columns
