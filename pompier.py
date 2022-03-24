@@ -32,3 +32,9 @@ def set_features(self):
    
 df.feature = set_features(df)
 st.write(df.feature)
+
+def prepare_data(self, split_data, train_test):
+   # Reduce data size
+   data = self.data[self.features]
+   data = data.sample(frac = round(split_data/100,2))
+
