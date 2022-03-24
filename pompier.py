@@ -31,7 +31,7 @@ if st.sidebar.checkbox("Display data", False):
 
 # Set features
 features_options = df.columns
-features = st.multiselect("Please choose the features including target variable that go into the model", df.columns )
+features = st.multiselect("Please choose the features including target variable that go into the model", features_options)
 df = df[features]
 
 # Set target column
