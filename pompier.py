@@ -34,14 +34,13 @@ features_options = df.columns
 features = st.multiselect("Please choose the features including target variable that go into the model", features_options)
 df = df[features]
 
-# Set target column
-target_options = df.columns
-target = st.sidebar.selectbox("Please choose target column", (target_options))
-
-st.write("la target est:", target)
+st.write(df)
 
 @st.cache(persist=True)
 def split(df):
+   # Set target column
+   target_options = df.columns
+   target = st.sidebar.selectbox("Please choose target column", (target_options))
    y = df.target
    x = df.drop(columns=["target"])
    x_train, x_test, y_train, y_test =     train_test_split(x,y,test_size=0.3, random_state=0)
