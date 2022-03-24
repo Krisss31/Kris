@@ -40,7 +40,7 @@ target = st.sidebar.selectbox("Please choose target column", (target_options))
 
 @st.cache(persist=True)
 def split(df):
-   y = df.target
+   y = df['target']
    x = df.drop(columns=["target"])
    x_train, x_test, y_train, y_test =     train_test_split(x,y,test_size=0.3, random_state=0)
    return x_train, x_test, y_train, y_test
