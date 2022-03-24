@@ -29,6 +29,20 @@ if st.sidebar.checkbox("Display data", False):
     st.subheader("Show Mushroom dataset")
     st.write(df)
 
+# Set features
+features_options = df.columns
+features = st.multiselect(‘Please choose the features including target variable that go into the model’, df.columns ))
+df = df[features]
+
 # Set target column
-target_options = data.columns
-self.chosen_target = st.sidebar.selectbox("Please choose target column", (target_options))
+target_options = df.columns
+target = st.sidebar.selectbox("Please choose target column", (target_options))
+
+@st.cache(persist=True)
+def split(df):
+    y = df.target
+    x = df.drop(columns=["target"])
+    x_train, x_test, y_train, y_test =     train_test_split(x,y,test_size=0.3, random_state=0)
+    
+return x_train, x_test, y_train, y_test
+x_train, x_test, y_train, y_test = split(df)
