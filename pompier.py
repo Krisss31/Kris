@@ -31,4 +31,4 @@ def set_features(self):
    self.features = st.multiselect("Please choose the features including target variable that go into the model", self.columns )
    
 df.feature = set_features(df)
-st.write(df)
+st.write(df.feature)
