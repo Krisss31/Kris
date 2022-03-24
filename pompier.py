@@ -23,7 +23,7 @@ def file_selector(self):
    else:
       st.text("Please upload a csv file")   
 
-df = file_selector()
+df = file_selector(self)
 
 st.write(df)
 
