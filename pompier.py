@@ -38,7 +38,7 @@ def prepare_data(self, split_data, train_test):
    data = self.data[self.features]
    data = data.sample(frac = round(split_data/100,2))
 
-prepare_data(df, split_data, train_test)
+
 
    # Impute nans with mean for numeris and most frequent for categoricals
 cat_imp = SimpleImputer(strategy="most_frequent")
