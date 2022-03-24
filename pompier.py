@@ -38,3 +38,11 @@ def prepare_data(self, split_data, train_test):
    data = self.data[self.features]
    data = data.sample(frac = round(split_data/100,2))
 
+prepare_data(df, split_data, train_test)
+
+   # Impute nans with mean for numeris and most frequent for categoricals
+cat_imp = SimpleImputer(strategy="most_frequent")
+if len(data.loc[:,data.dtypes == 'object'].columns) != 0:
+   data.loc[:,data.dtypes == 'object'] = cat_imp.fit_transform(data.loc[:,data.dtypes == 'object'])
+   imp = SimpleImputer(missing_values = np.nan, strategy="mean")
+   data.loc[:,data.dtypes != 'object'] = imp.fit_transform(data.loc[:,data.dtypes != 'object'])
