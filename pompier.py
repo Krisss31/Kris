@@ -38,6 +38,8 @@ df = df[features]
 target_options = df.columns
 target = st.sidebar.selectbox("Please choose target column", (target_options))
 
+st.write("la target est:", target)
+
 @st.cache(persist=True)
 def split(df):
    y = df['target']
