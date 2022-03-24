@@ -23,8 +23,12 @@ def file_selector():
    else:
       st.text("Please upload a csv file")   
 
+df = file_selector()    
+      
 if st.sidebar.checkbox("Display data", False):
     st.subheader("Show Mushroom dataset")
     st.write(df)
 
-
+# Set target column
+target_options = data.columns
+self.chosen_target = st.sidebar.selectbox("Please choose target column", (target_options))
