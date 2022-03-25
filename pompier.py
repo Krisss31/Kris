@@ -57,3 +57,14 @@ if df is not None:
    
 st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", ("Support Vector Machine (SVM)", "Logistic Regression", "Random Forest"))
+
+if st.sidebar.button("Classify", key="classify"):
+    st.subheader("Support Vector Machine (SVM) results")
+    model = SVC(C=C, kernel=kernel, gamma=gamma)
+    model.fit(x_train, y_train)
+    accuracy = model.score(x_test, y_test)
+    y_pred = model.predict(x_test)
+    st.write("Accuracy: ", accuracy.round(2))
+    st.write("Precision: ", precision_score(y_test, y_pred, labels=class_names).round(2))
+    st.write("Recall: ", recall_score(y_test, y_pred, labels=class_names).round(2)) 
+    plot_metrics(metrics)
