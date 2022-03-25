@@ -48,6 +48,6 @@ def split(df):
       y = df[target]
       x = df.drop(columns=[target])
       x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.3, random_state=0)
-   return x_train, x_test, y_train, y_test
+      return x_train, x_test, y_train, y_test
 
 x_train, x_test, y_train, y_test = split(df)
