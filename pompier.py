@@ -24,7 +24,6 @@ def file_selector():
    else:
       st.text("Please upload a csv file")   
 
-@st.cache(persist=True)
 df = file_selector()    
       
 if st.sidebar.checkbox("Display data", False):
