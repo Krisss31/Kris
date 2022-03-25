@@ -127,7 +127,7 @@ if classifier == "DecisionTreeClassifier":
       
     if st.sidebar.button("Classify", key="classify"):
         st.subheader("DecisionTreeClassifier")
-        model = DecisionTreeClassifier(criterion = criterion,  max_depth = max_depth, n_jobs=-1 )
+        model = DecisionTreeClassifier(criterion = criterion,  max_depth = max_depth)
         model.fit(x_train, y_train)
         accuracy = model.score(x_test, y_test)
         y_pred = model.predict(x_test)
