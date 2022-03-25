@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn import metrics
-from sklearn.linear_model import LogisticClassification
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import linear_model
