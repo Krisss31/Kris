@@ -112,7 +112,7 @@ if classifier == "Random Forest":
          
 if classifier == "DecisionTreeClassifier":
     st.sidebar.subheader("Hyperparameters")
-    n_estimators= st.sidebar.number_input("Criterion",10, 500, ("entropy", "giny"), key="criterion")
+    n_estimators= st.sidebar.number_input("Criterion",("entropy", "giny"), key="criterion")
     max_depth = st.sidebar.number_input("The maximum depth of tree", 1, 50, step =1, key="max_depth")
     
     metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix", "ROC Curve", "Precision-Recall Curve"))
