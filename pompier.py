@@ -7,7 +7,8 @@ from sklearn import metrics
 from sklearn.linear_model import LogisticClassification
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_splitfrom sklearn.metrics import plot_confusion_matrix, plot_roc_curve, plot_precision_recall_curve
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import plot_confusion_matrix, plot_roc_curve, plot_precision_recall_curve
 from sklearn.metrics import precision_score, recall_score
 from sklearn.metrics import accuracy_score
 
