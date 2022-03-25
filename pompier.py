@@ -109,3 +109,22 @@ if classifier == "Random Forest":
         st.write("Precision: ", precision_score(y_test, y_pred, labels=class_names).round(2))
         st.write("Recall: ", recall_score(y_test, y_pred, labels=class_names).round(2))
         plot_metrics(metrics)
+         
+if classifier == "DecisionTreeClassifier":
+    st.sidebar.subheader("Hyperparameters")
+    n_estimators= st.sidebar.number_input("Criterion",10, 500, ("entropy", "giny"), key="criterion")
+    max_depth = st.sidebar.number_input("The maximum depth of tree", 1, 50, step =1, key="max_depth")
+    
+    metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix", "ROC Curve", "Precision-Recall Curve"))
+    
+      
+    if st.sidebar.button("Classify", key="classify"):
+        st.subheader("DecisionTreeClassifier")
+        model = DecisionTreeClassifier(criterion = criterion,  max_depth = max_depth, n_jobs=-1 )
+        model.fit(x_train, y_train)
+        accuracy = model.score(x_test, y_test)
+        y_pred = model.predict(x_test)
+        st.write("Accuracy: ", accuracy.round(2))
+        st.write("Precision: ", precision_score(y_test, y_pred, labels=class_names).round(2))
+        st.write("Recall: ", recall_score(y_test, y_pred, labels=class_names).round(2))
+        plot_metrics(metrics)
