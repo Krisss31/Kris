@@ -24,6 +24,7 @@ def file_selector():
    else:
       st.text("Please upload a csv file")   
 
+@st.cache(persist=True)
 df = file_selector()    
       
 if st.sidebar.checkbox("Display data", False):
@@ -38,7 +39,7 @@ if df is not None:
 
 st.write(df)
 
-#@st.cache(persist=True)
+@st.cache(persist=True)
 #@st.cache(suppress_st_warning=True)
 def split(df):
    # Set target column
@@ -52,3 +53,7 @@ def split(df):
 
 if df is not None:
    x_train, x_test, y_train, y_test = split(df)
+
+   
+st.sidebar.subheader("Choose classifier")
+classifier = st.sidebar.selectbox("Classifier", ("Support Vector Machine (SVM)", "Logistic Regression", "Random Forest"))
