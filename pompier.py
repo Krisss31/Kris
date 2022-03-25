@@ -3,14 +3,12 @@ import streamlit as st
 import numpy as np 
 import matplotlib.pyplot as plt
 
-from sklearn import datasets
-from sklearn.model_selection import train_test_split
-
-from sklearn.decomposition import PCA
-from sklearn.svm import SVC
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn import metrics
+from sklearn.linear_model import LogisticClassification
 from sklearn.ensemble import RandomForestClassifier
-
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_splitfrom sklearn.metrics import plot_confusion_matrix, plot_roc_curve, plot_precision_recall_curve
+from sklearn.metrics import precision_score, recall_score
 from sklearn.metrics import accuracy_score
 
 st.title("pompier")
@@ -77,7 +75,7 @@ if classifier == "Logistic Classification":
    max_iter = st.sidebar.slider("Maximum iterations", 100, 500, key="max_iter")
    metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix", "ROC Curve", "Precision-Recall Curve"))
    st.subheader("Logistic Regression Results")
-   model = LogisticRegression(C=C, max_iter=max_iter)
+   model = LogisticClassification(C=C, max_iter=max_iter)
    model.fit(x_train, y_train)
    accuracy = model.score(x_test, y_test)
    y_pred = model.predict(x_test)
