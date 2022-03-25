@@ -55,15 +55,33 @@ if df is not None:
 
    
 st.sidebar.subheader("Choose classifier")
-classifier = st.sidebar.selectbox("Classifier", ("Support Vector Machine (SVM)", "Logistic Regression", "Random Forest"))
+classifier = st.sidebar.selectbox("Classifier", ("Logistic Classification", "Random Forest"))
 
-if st.sidebar.button("Classify", key="classify"):
-    st.subheader("Support Vector Machine (SVM) results")
-    model = SVC(C=C, kernel=kernel, gamma=gamma)
-    model.fit(x_train, y_train)
-    accuracy = model.score(x_test, y_test)
-    y_pred = model.predict(x_test)
-    st.write("Accuracy: ", accuracy.round(2))
-    st.write("Precision: ", precision_score(y_test, y_pred, labels=class_names).round(2))
-    st.write("Recall: ", recall_score(y_test, y_pred, labels=class_names).round(2)) 
-    plot_metrics(metrics)
+def plot_metrics(metrics_list):
+    if "Confusion Matrix" in metrics_list:
+        st.subheader("Confusion Matrix")
+        plot_confusion_matrix(model, x_test, y_test)
+        st.pyplot()
+    if "ROC Curve" in metrics_list:
+        st.subheader("ROC Curve")
+        plot_roc_curve(model, x_test, y_test)
+        st.pyplot()
+    if "Precision-Recall Curve" in metrics_list:
+        st.subheader("Precision-Recall Curve")
+        plot_precision_recall_curve(model, x_test, y_test)
+        st.pyplot()
+         
+if classifier == "Logistic Classification":
+   st.sidebar.subheader("Hyperparameters")
+   C = st.sidebar.number_input("C (Regularization parameter)", 0.01, 10.0, step=0.01, key="C_LC")
+   max_iter = st.sidebar.slider("Maximum iterations", 100, 500, key="max_iter")
+   metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix", "ROC Curve", "Precision-Recall Curve"))
+   st.subheader("Logistic Regression Results")
+   model = LogisticRegression(C=C, max_iter=max_iter)
+   model.fit(x_train, y_train)
+   accuracy = model.score(x_test, y_test)
+   y_pred = model.predict(x_test)
+   st.write("Accuracy: ", accuracy.round(2))
+   st.write("Precision: ", precision_score(y_test, y_pred, labels=class_names).round(2))
+   st.write("Recall: ", recall_score(y_test, y_pred, labels=class_names).round(2))
+   plot_metrics(metrics)
