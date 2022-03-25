@@ -15,6 +15,10 @@ from sklearn.metrics import accuracy_score
 
 st.title("pompier")
 
+
+[server]
+maxUploadSize = 1028
+
 def file_selector():
    file = st.sidebar.file_uploader("Choose a CSV pickel", type="pkl")
    if file is not None:
