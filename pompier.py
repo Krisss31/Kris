@@ -39,7 +39,7 @@ if st.sidebar.checkbox("Display data", False):
    #df = df[features]
    
 choice_features = st.sidebar.multiselect("Do you want to choice the feature", ("yes", "no"))
-if choice_features = "yes":
+if choice_features == "yes":
    if df is not None:
    features_options = df.columns
    features = st.multiselect("Please choose the features including target variable that go into the model", features_options)
