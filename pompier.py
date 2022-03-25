@@ -44,16 +44,16 @@ if choice_features == "yes":
       features_options = df.columns
       features = st.multiselect("Please choose the features including target variable that go into the model", features_options)
       df = df[features]
+      st.write(df)
 
-st.write(df)
-
+# Set target column
+if df is not None:
+   target_options = df.columns
+   target = st.sidebar.selectbox("Please choose target column", (target_options))
+      
 @st.cache(persist=True)
 #@st.cache(suppress_st_warning=True)
 def split(df):
-   # Set target column
-   if df is not None:
-      target_options = df.columns
-      target = st.sidebar.selectbox("Please choose target column", (target_options))
       y = df[target]
       x = df.drop(columns=[target])
       x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.3, random_state=0)
