@@ -93,8 +93,8 @@ if classifier == "Logistic Regression":
 
 if classifier == "Random Forest":
     st.sidebar.subheader("Hyperparameters")
-    n_estimators= st.sidebar.number_input("The number of trees in the forest",10, 100, 1000, step=10, key="n_estimators")
-    max_depth = st.sidebar.number_input("The maximum depth of tree", 1, 20, 50, step =1, key="max_depth")
+    n_estimators= st.sidebar.number_input("The number of trees in the forest",10, 500, step=10, key="n_estimators")
+    max_depth = st.sidebar.number_input("The maximum depth of tree", 1, 50, step =1, key="max_depth")
     bootstrap = st.sidebar.radio("Bootstrap samples when building trees", ("True", "False"), key="bootstrap")
     
     metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix", "ROC Curve", "Precision-Recall Curve"))
