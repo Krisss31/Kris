@@ -30,9 +30,10 @@ if st.sidebar.checkbox("Display data", False):
     st.write(df)
 
 # Set features
-features_options = df.columns
-features = st.multiselect("Please choose the features including target variable that go into the model", features_options)
-df = df[features]
+if df is not None:
+   features_options = df.columns
+   features = st.multiselect("Please choose the features including target variable that go into the model", features_options)
+   df = df[features]
 
 st.write(df)
 
