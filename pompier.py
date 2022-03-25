@@ -17,12 +17,12 @@ st.title("pompier")
 
 
 def file_selector():
-   file = st.sidebar.file_uploader("Choose a CSV pickel", type="pkl")
+   file = st.sidebar.file_uploader("Choose a CSV file", type="csv")
    if file is not None:
-      data = pd.read_pickle(file)
+      data = pd.read_csv(file)
       return data
    else:
-      st.text("Please upload a pkl file")   
+      st.text("Please upload a csv file")   
 
 df = file_selector()    
       
