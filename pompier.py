@@ -16,12 +16,12 @@ from sklearn.metrics import accuracy_score
 st.title("pompier")
 
 def file_selector():
-   file = st.sidebar.file_uploader("Choose a CSV file", type="csv")
+   file = st.sidebar.file_uploader("Choose a CSV pickel", type="pkl")
    if file is not None:
-      data = pd.read_csv(file)
+      data = pd.read_pkl(file)
       return data
    else:
-      st.text("Please upload a csv file")   
+      st.text("Please upload a pkl file")   
 
 df = file_selector()    
       
