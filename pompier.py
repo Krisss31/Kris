@@ -76,7 +76,7 @@ if classifier == "Logistic Regression":
     st.sidebar.subheader("Hyperparameters")
     C = st.sidebar.number_input("C (Regularization parameter)", 0.01, 10.0, step=0.01, key="C_LR")
     max_iter = st.sidebar.slider("Maximum iterations", 100, 500, key="max_iter")
-    metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix")
+    metrics = st.sidebar.multiselect("What metrics to plot?", "Confusion Matrix")
     
     if st.sidebar.button("Classify", key="classify"):
         st.subheader("Logistic Regression Results")
@@ -96,7 +96,7 @@ if classifier == "Random Forest":
     max_depth = st.sidebar.number_input("The maximum depth of tree", 1, 50, step =1, key="max_depth")
     bootstrap = st.sidebar.radio("Bootstrap samples when building trees", ("True", "False"), key="bootstrap")
     
-    metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix", "ROC Curve", "Precision-Recall Curve"))
+    metrics = st.sidebar.multiselect("What metrics to plot?", "Confusion Matrix")
     
     if st.sidebar.button("Classify", key="classify"):
         st.subheader("Random Forest Results")
@@ -114,7 +114,7 @@ if classifier == "DecisionTreeClassifier":
     criterion= st.sidebar.multiselect("Criterion",("entropy", "giny"))
     max_depth = st.sidebar.number_input("The maximum depth of tree", 1, 50, step =1, key="max_depth")
     
-    metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix", "ROC Curve", "Precision-Recall Curve"))
+    metrics = st.sidebar.multiselect("What metrics to plot?",("What metrics to plot?", "Confusion Matrix")
     
       
     if st.sidebar.button("Classify", key="classify"):
