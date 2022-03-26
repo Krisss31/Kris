@@ -71,20 +71,12 @@ def plot_metrics(metrics_list):
         st.subheader("Confusion Matrix")
         plot_confusion_matrix(model, x_test, y_test)
         st.pyplot()
-    if "ROC Curve" in metrics_list:
-        st.subheader("ROC Curve")
-        plot_roc_curve(model, x_test, y_test)
-        st.pyplot()
-    if "Precision-Recall Curve" in metrics_list:
-        st.subheader("Precision-Recall Curve")
-        plot_precision_recall_curve(model, x_test, y_test)
-        st.pyplot()
          
 if classifier == "Logistic Regression":
     st.sidebar.subheader("Hyperparameters")
     C = st.sidebar.number_input("C (Regularization parameter)", 0.01, 10.0, step=0.01, key="C_LR")
     max_iter = st.sidebar.slider("Maximum iterations", 100, 500, key="max_iter")
-    metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix", "ROC Curve", "Precision-Recall Curve"))
+    metrics = st.sidebar.multiselect("What metrics to plot?", ("Confusion Matrix")
     
     if st.sidebar.button("Classify", key="classify"):
         st.subheader("Logistic Regression Results")
