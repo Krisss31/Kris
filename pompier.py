@@ -114,7 +114,7 @@ if classifier == "DecisionTreeClassifier":
     criterion= st.sidebar.multiselect("Criterion",("entropy", "giny"))
     max_depth = st.sidebar.number_input("The maximum depth of tree", 1, 50, step =1, key="max_depth")
     
-    metrics = st.sidebar.multiselect("What metrics to plot?",("What metrics to plot?", "Confusion Matrix")
+    metrics = st.sidebar.multiselect("What metrics to plot?","Confusion Matrix")
     
       
     if st.sidebar.button("Classify", key="classify"):
