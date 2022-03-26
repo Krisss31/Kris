@@ -93,9 +93,9 @@ if classifier == "Logistic Regression":
         accuracy = model.score(x_test, y_test)
         y_pred = model.predict(x_test)
         
-        st.write("Accuracy: ", accuracy.round(2))
-        st.write("Precision: ", precision_score(y_test, y_pred, labels=class_names).round(2))
-        st.write("Recall: ", recall_score(y_test, y_pred, labels=class_names).round(2))
+        st.write("Accuracy: ", accuracy)
+        st.write("Precision: ", precision_score(y_test, y_pred))
+        st.write("Recall: ", recall_score(y_test, y_pred))
         plot_metrics(metrics)
 
 if classifier == "Random Forest":
@@ -113,8 +113,8 @@ if classifier == "Random Forest":
         accuracy = model.score(x_test, y_test)
         y_pred = model.predict(x_test)
         st.write("Accuracy: ", accuracy.round(2))
-        st.write("Precision: ", precision_score(y_test, y_pred).round(2))
-        st.write("Recall: ", recall_score(y_test, y_pred).round(2))
+        st.write("Precision: ", precision_score(y_test, y_pred,labels=class_names).round(2))
+        st.write("Recall: ", recall_score(y_test, y_pred,labels=class_names).round(2))
         plot_metrics(metrics)
          
 if classifier == "DecisionTreeClassifier":
