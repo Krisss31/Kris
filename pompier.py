@@ -67,7 +67,7 @@ st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
 
 def plot_metrics(metrics_list):
-    if "Confusion Matrix" in metrics_list:
+    if "yes" in metrics_list:
         st.subheader("Confusion Matrix")
         plot_confusion_matrix(model, x_test, y_test)
         st.pyplot()
