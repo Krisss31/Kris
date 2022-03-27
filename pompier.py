@@ -110,7 +110,7 @@ if classifier == "Random Forest":
         st.write("Accuracy: ", accuracy)
         #st.write("Precision: ", precision_score(y_test, y_pred))
         #st.write("Recall: ", recall_score(y_test, y_pred))
-        metrics(metric))
+        metrics(metric)
          
 if classifier == "DecisionTreeClassifier":
     st.sidebar.subheader("Hyperparameters")
@@ -129,4 +129,4 @@ if classifier == "DecisionTreeClassifier":
         st.write("Accuracy: ", accuracy)
         #st.write("Precision: ", precision_score(y_test, y_pred))
         #st.write("Recall: ", recall_score(y_test, y_pred))
-        metrics(metric))
+        metrics(metric)
