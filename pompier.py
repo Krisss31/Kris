@@ -28,8 +28,13 @@ def file_selector():
    else:
       st.text("Please upload a csv file")   
 
-df = file_selector()    
-      
+df = file_selector()
+
+if df is not None:
+   df=df[df["Mobilised_Rank"]==1]
+   df = df.drop_duplicates(subset=["IncidentNumber"])
+
+
 if st.sidebar.checkbox("Display data", False):
     st.write(df)
  
@@ -48,9 +53,9 @@ if st.sidebar.checkbox("Do you want to choose the feature", False):
    #st.write(df)
 
    
-if df is not None:
-   df=df[df["Mobilised_Rank"]==1]
-   df = df.drop_duplicates(subset=["IncidentNumber"])
+#if df is not None:
+   #df=df[df["Mobilised_Rank"]==1]
+   #df = df.drop_duplicates(subset=["IncidentNumber"])
 
 
    
@@ -69,8 +74,8 @@ if st.sidebar.checkbox("Do you want to make get_dummies", False):
       #df = pd.get_dummies(df, columns = features_dummies)
       "st.write(df)
 
-if df is not None:
-   df=df.drop(['IncidentNumber','Mobilised_Rank'], axis =1)
+#if df is not None:
+   #df=df.drop(['IncidentNumber','Mobilised_Rank'], axis =1)
 
 
 Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
