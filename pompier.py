@@ -91,7 +91,7 @@ if classifier == "Logistic Regression":
     st.subheader("Classification Report")
     st.text(classification_report(y_test, y_pred))
     st.subheader('Confusion Matrix')
-    plot_confusion_matrix(model, X_test, y_test)
+    plot_confusion_matrix(model, y_test, y_pred)
     st.pyplot()
     #st.write("Precision: ", precision_score(y_test, y_pred))
     #st.write("Recall: ", recall_score(y_test, y_pred))
