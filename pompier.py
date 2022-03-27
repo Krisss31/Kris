@@ -67,8 +67,8 @@ if df is not None:
 st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
 
-def metrics(metrics_list):
-   if "Confusion Matrix" in metrics_list:
+#def metrics(metrics_list):
+   #if "Confusion Matrix" in metrics_list:
       #st.subheader("Confusion Matrix")
       #plot_confusion_matrix(model, x_test, y_pred)
       #return st.pyplot()
