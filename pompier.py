@@ -99,7 +99,7 @@ if classifier == "Random Forest":
     max_depth = st.sidebar.number_input("The maximum depth of tree", 1, 50, step =1, key="max_depth")
     bootstrap = st.sidebar.radio("Bootstrap samples when building trees", ("True", "False"), key="bootstrap")
     
-    metrics = st.sidebar.multiselect("Do you want Confusion Metrix", ("yes", "no"))
+    metric = st.sidebar.multiselect("What metrics to plot?",("Confusion Matrix", "Classification Report"))
     
     if st.sidebar.button("Classify", key="classify"):
         st.subheader("Random Forest Results")
@@ -117,7 +117,7 @@ if classifier == "DecisionTreeClassifier":
     criterion= st.sidebar.multiselect("Criterion",("entropy", "giny"))
     max_depth = st.sidebar.number_input("The maximum depth of tree", 1, 50, step =1, key="max_depth")
     
-    metrics = st.sidebar.multiselect("Do you want Confusion Metrix", ("yes", "no"))
+    metric = st.sidebar.multiselect("What metrics to plot?",("Confusion Matrix", "Classification Report"))
     
       
     if st.sidebar.button("Classify", key="classify"):
