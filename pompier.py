@@ -70,7 +70,7 @@ if df is not None:
    df=df.drop(['IncidentNumber','Mobilised_Rank'], axis =1)
 
 
-Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps, ("yes", "no"))
+Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
 if choice_features == "yes":
    if df is not None:
       df['NumPumpsAttending']=df['NumPumpsAttending'].replace([3,4,5,6,7,8,9,11,13], 3)
