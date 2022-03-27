@@ -69,6 +69,7 @@ classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random 
 
 def metrics(metrics_list):
    if "Confusion Matrix" in metrics_list:
+      st.set_option('deprecation.showPyplotGlobalUse', False)
       st.subheader("Confusion Matrix")
       plot_confusion_matrix(model, x_test, y_test, display_labels = ["1", "2", "3"])
       st.pyplot()
