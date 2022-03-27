@@ -71,7 +71,7 @@ def metrics(metrics_list):
    if "Confusion Matrix" in metrics_list:
       st.subheader("Confusion Matrix")
       plot_confusion_matrix(model, x_test, y_test)
-      st.pyplot())
+      st.pyplot()
 
    if "Classification Report" in metrics_list:
       st.subheader("Classification Report")
