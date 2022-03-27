@@ -79,7 +79,7 @@ if classifier == "Logistic Regression":
     st.sidebar.subheader("Hyperparameters")
     C = st.sidebar.number_input("C (Regularization parameter)", 0.01, 10.0, step=0.01, key="C_LR")
     max_iter = st.sidebar.slider("Maximum iterations", 100, 500, key="max_iter")
-    metrics = st.sidebar.multiselect("What metrics to plot?",('Confusion Matrix', 'classification_report'))
+    metrics = st.sidebar.multiselect("What metrics to plot?",('Confusion Matrix', 'Classification Report'))
     
     if st.sidebar.button("Classify", key="classify"):
         st.subheader("Logistic Regression Results")
