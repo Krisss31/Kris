@@ -34,12 +34,18 @@ if st.sidebar.checkbox("Display data", False):
     st.write(df)
  
 
-choice_features = st.sidebar.multiselect("Do you want to choose the feature", ("yes", "no"))
-if choice_features == "yes":
+if st.sidebar.checkbox("Do you want to choose the feature", False):
    features_options = df.columns
    features = st.multiselect("Please choose the features including target variable that go into the model", features_options)
    df = df[features]
    st.write(df)
+
+#choice_features = st.sidebar.multiselect("Do you want to choose the feature", ("yes", "no"))
+#if choice_features == "yes":
+   #features_options = df.columns
+   #features = st.multiselect("Please choose the features including target variable that go into the model", features_options)
+   #df = df[features]
+   #st.write(df)
 
    
 if df is not None:
