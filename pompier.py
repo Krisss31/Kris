@@ -32,7 +32,8 @@ df = file_selector()
       
 if st.sidebar.checkbox("Display data", False):
     st.write(df)
-   
+ 
+@st.cache(persist= True)
 choice_features = st.sidebar.multiselect("Do you want to choose the feature", ("yes", "no"))
 if choice_features == "yes":
    if df is not None:
@@ -46,7 +47,7 @@ if df is not None:
    df=df[df["Mobilised_Rank"]==1]
    df = df.drop_duplicates(subset=["IncidentNumber"])
 
-   
+@st.cache(persist= True)  
 choice_features_dummies = st.sidebar.multiselect("Do you want to make get_dummies", ("yes", "no"))
 if choice_features_dummies == "yes":
    if df is not None:
@@ -54,17 +55,17 @@ if choice_features_dummies == "yes":
       features_dummies = st.multiselect("Please choose the features who want to get_dummies", features_options)
       df = pd.get_dummies(df, columns = features_dummies)
       st.write(df)
-  
+
 if df is not None:
    df=df.drop(['IncidentNumber','Mobilised_Rank'], axis =1)
 
-
+@st.cache(persist= True)
 Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
 if Numbers_of_Pumps == "yes":
    if df is not None:
       df['NumPumpsAttending']=df['NumPumpsAttending'].replace([3,4,5,6,7,8,9,11,13], 3)
    
-
+@st.cache(persist= True)
 # Set target column
 if df is not None:
    target_options = df.columns
@@ -84,10 +85,11 @@ def split(df):
 if df is not None:
    x_train, x_test, y_train, y_test = split(df)
 
-   
+@st.cache(persist= True)   
 st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
 
+@st.cache(persist= True)
 def metrics(metrics_list):
    if "Confusion Matrix" in metrics_list:
       st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -98,7 +100,8 @@ def metrics(metrics_list):
    if "Classification Report" in metrics_list:
       st.subheader("Classification Report")
       return st.text(classification_report(y_test, y_pred))
- 
+
+@st.cache(persist= True)
 if classifier == "Logistic Regression":
     st.sidebar.subheader("Hyperparameters")
     C = st.sidebar.number_input("C (Regularization parameter)", 0.01, 10.0, step=0.01, key="C_LR")
@@ -114,6 +117,7 @@ if classifier == "Logistic Regression":
     #st.write("Recall: ", recall_score(y_test, y_pred))
     metrics(metric)
 
+@st.cache(persist= True)      
 if classifier == "Random Forest":
     st.sidebar.subheader("Hyperparameters")
     n_estimators= st.sidebar.number_input("The number of trees in the forest",10, 500, step=10, key="n_estimators")
@@ -130,7 +134,8 @@ if classifier == "Random Forest":
     #st.write("Precision: ", precision_score(y_test, y_pred))
     #st.write("Recall: ", recall_score(y_test, y_pred))
     metrics(metric)
-         
+
+@st.cache(persist= True)     
 if classifier == "DecisionTreeClassifier":
     st.sidebar.subheader("Hyperparameters")
     criterion= st.sidebar.multiselect("Criterion",("entropy", "giny"))
