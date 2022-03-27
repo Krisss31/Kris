@@ -74,7 +74,7 @@ def metrics(metrics_list):
       return st.write(confusion_matrix(y_test,y_pred))
    if "Classification Report" in metrics_list:
       st.subheader("Classification Report")
-      return st.table(classification_report(y_test, y_pred))
+      return st.text('Model Report:\n ' + classification_report(y_true, y_pred))
          
 if classifier == "Logistic Regression":
     st.sidebar.subheader("Hyperparameters")
