@@ -91,7 +91,7 @@ if classifier == "Logistic Regression":
         st.write("Accuracy: ", accuracy)
         #st.write("Precision: ", precision_score(y_test, y_pred))
         #st.write("Recall: ", recall_score(y_test, y_pred))
-        metrics(metric))
+        metrics(metric)
 
 if classifier == "Random Forest":
     st.sidebar.subheader("Hyperparameters")
