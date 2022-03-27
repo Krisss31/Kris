@@ -67,16 +67,20 @@ st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
 
 def plot_metrics(metrics_list):
-    if "yes" in metrics_list:
-        st.subheader("Confusion Matrix")
-        plot_confusion_matrix(model, x_test, y_test)
-        st.pyplot()
+   if "Confusion Matrix" in metrics_list:
+      st.subheader("Confusion Matrix")
+      plot_confusion_matrix(model, x_test, y_test)
+      st.pyplot()
+   if "Classification Report" in metrics_list:
+      st.subheader("Classification Report")
+      plot_classification_report(y_test, y_pred)
+      st.pyplot()
          
 if classifier == "Logistic Regression":
     st.sidebar.subheader("Hyperparameters")
     C = st.sidebar.number_input("C (Regularization parameter)", 0.01, 10.0, step=0.01, key="C_LR")
     max_iter = st.sidebar.slider("Maximum iterations", 100, 500, key="max_iter")
-    metrics = st.sidebar.multiselect("Do you want Confusion Metrix", ("yes", "no"))
+    metrics = st.sidebar.multiselect("What metrics to plot?",('Confusion Matrix', 'classification_report'))
     
     if st.sidebar.button("Classify", key="classify"):
         st.subheader("Logistic Regression Results")
@@ -86,8 +90,8 @@ if classifier == "Logistic Regression":
         y_pred = model.predict(x_test)
         
         st.write("Accuracy: ", accuracy)
-        st.write("Precision: ", precision_score(y_test, y_pred))
-        st.write("Recall: ", recall_score(y_test, y_pred))
+        #st.write("Precision: ", precision_score(y_test, y_pred))
+        #st.write("Recall: ", recall_score(y_test, y_pred))
         plot_metrics(metrics)
 
 if classifier == "Random Forest":
