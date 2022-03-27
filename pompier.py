@@ -124,17 +124,15 @@ if classifier == "Random Forest":
     bootstrap = st.sidebar.radio("Bootstrap samples when building trees", ("True", "False"), key="bootstrap")
     
     metric = st.sidebar.multiselect("What metrics to plot?",("Confusion Matrix", "Classification Report"))
-    
-    if st.sidebar.button("Classify", key="classify"):
-        st.subheader("Random Forest Results")
-        model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth, bootstrap= bootstrap, n_jobs=-1 )
-        model.fit(x_train, y_train)
-        accuracy = model.score(x_test, y_test)
-        y_pred = model.predict(x_test)      
-        st.write("Accuracy: ", accuracy)
-        #st.write("Precision: ", precision_score(y_test, y_pred))
-        #st.write("Recall: ", recall_score(y_test, y_pred))
-        metrics(metric)
+    st.subheader("Random Forest Results")
+    model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth, bootstrap= bootstrap, n_jobs=-1 )
+    model.fit(x_train, y_train)
+    accuracy = model.score(x_test, y_test)
+    y_pred = model.predict(x_test)      
+    st.write("Accuracy: ", accuracy)
+    #st.write("Precision: ", precision_score(y_test, y_pred))
+    #st.write("Recall: ", recall_score(y_test, y_pred))
+    metrics(metric)
          
 if classifier == "DecisionTreeClassifier":
     st.sidebar.subheader("Hyperparameters")
@@ -143,14 +141,12 @@ if classifier == "DecisionTreeClassifier":
     
     metric = st.sidebar.multiselect("What metrics to plot?",("Confusion Matrix", "Classification Report"))
     
-      
-    if st.sidebar.button("Classify", key="classify"):
-        st.subheader("DecisionTreeClassifier")
-        model = DecisionTreeClassifier(criterion = criterion,  max_depth = max_depth)
-        model.fit(x_train, y_train)
-        accuracy = model.score(x_test, y_test)
-        y_pred = model.predict(x_test)      
-        st.write("Accuracy: ", accuracy)
-        #st.write("Precision: ", precision_score(y_test, y_pred))
-        #st.write("Recall: ", recall_score(y_test, y_pred))
-        metrics(metric)
+    st.subheader("DecisionTreeClassifier")
+    model = DecisionTreeClassifier(criterion = criterion,  max_depth = max_depth)
+    model.fit(x_train, y_train)
+    accuracy = model.score(x_test, y_test)
+    y_pred = model.predict(x_test)      
+    st.write("Accuracy: ", accuracy)
+    #st.write("Precision: ", precision_score(y_test, y_pred))
+    #st.write("Recall: ", recall_score(y_test, y_pred))
+    metrics(metric)
