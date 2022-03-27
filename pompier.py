@@ -31,7 +31,6 @@ def file_selector():
 df = file_selector()    
       
 if st.sidebar.checkbox("Display data", False):
-    st.subheader("Show Mushroom dataset")
     st.write(df)
 
 # Set features
@@ -68,15 +67,15 @@ if df is not None:
 st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
 
-#def metrics(metrics_list):
-   #if "Confusion Matrix" in metrics_list:
+def metrics(metrics_list):
+   if "Confusion Matrix" in metrics_list:
       #st.subheader("Confusion Matrix")
       #plot_confusion_matrix(model, x_test, y_pred)
       #return st.pyplot()
    #if "Classification Report" in metrics_list:
       #st.subheader("Classification Report")
       #return st.text(classification_report(y_test, y_pred))
-         
+ 
 if classifier == "Logistic Regression":
     st.sidebar.subheader("Hyperparameters")
     C = st.sidebar.number_input("C (Regularization parameter)", 0.01, 10.0, step=0.01, key="C_LR")
@@ -91,8 +90,9 @@ if classifier == "Logistic Regression":
     st.write("Accuracy: ", accuracy)
     st.subheader("Classification Report")
     st.text(classification_report(y_test, y_pred))
-    st.subheader("Confusion Matrix")
-    st.pyplot(plot_confusion_matrix(model, x_test, y_pred))
+    st.subheader('Confusion Matrix')
+    plot_confusion_matrix(model, X_test, y_test)
+    st.pyplot()
     #st.write("Precision: ", precision_score(y_test, y_pred))
     #st.write("Recall: ", recall_score(y_test, y_pred))
     #metrics(metric)
