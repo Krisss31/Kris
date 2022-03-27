@@ -68,20 +68,20 @@ if df is not None:
 st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
 
-def metrics(metrics_list):
-   if "Confusion Matrix" in metrics_list:
-      st.subheader("Confusion Matrix")
-      plot_confusion_matrix(model, x_test, y_pred)
-      return st.pyplot()
-   if "Classification Report" in metrics_list:
-      st.subheader("Classification Report")
-      return st.text(classification_report(y_test, y_pred))
+#def metrics(metrics_list):
+   #if "Confusion Matrix" in metrics_list:
+      #st.subheader("Confusion Matrix")
+      #plot_confusion_matrix(model, x_test, y_pred)
+      #return st.pyplot()
+   #if "Classification Report" in metrics_list:
+      #st.subheader("Classification Report")
+      #return st.text(classification_report(y_test, y_pred))
          
 if classifier == "Logistic Regression":
     st.sidebar.subheader("Hyperparameters")
     C = st.sidebar.number_input("C (Regularization parameter)", 0.01, 10.0, step=0.01, key="C_LR")
     max_iter = st.sidebar.slider("Maximum iterations", 100, 500, key="max_iter")
-    metric = st.sidebar.multiselect("What metrics to plot?",("Confusion Matrix", "Classification Report"))
+    #metric = st.sidebar.multiselect("What metrics to plot?",("Confusion Matrix", "Classification Report"))
     st.subheader("Logistic Regression Results")
     model = LogisticRegression(C=C, max_iter=max_iter)
     model.fit(x_train, y_train)
@@ -89,9 +89,13 @@ if classifier == "Logistic Regression":
     y_pred = model.predict(x_test)
         
     st.write("Accuracy: ", accuracy)
+    st.subheader("Classification Report")
+    st.text(classification_report(y_test, y_pred))
+    st.subheader("Confusion Matrix")
+    st.pyplot(plot_confusion_matrix(model, x_test, y_pred))
     #st.write("Precision: ", precision_score(y_test, y_pred))
     #st.write("Recall: ", recall_score(y_test, y_pred))
-    metrics(metric)
+    #metrics(metric)
 
 if classifier == "Random Forest":
     st.sidebar.subheader("Hyperparameters")
