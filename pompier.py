@@ -71,7 +71,8 @@ classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random 
 def metrics(metrics_list):
    if "Confusion Matrix" in metrics_list:
       st.subheader("Confusion Matrix")
-      return st.pyplot(plot_confusion_matrix(model, x_test, y_test, display_labels= ["Realité","Prédiction"]))
+      plot_confusion_matrix(model, x_test, y_pred)
+      return st.pyplot()
    if "Classification Report" in metrics_list:
       st.subheader("Classification Report")
       return st.text(classification_report(y_test, y_pred))
