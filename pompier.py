@@ -66,15 +66,13 @@ if df is not None:
 st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
 
-def plot_metrics(metrics_list):
+def metrics(metrics_list):
    if "Confusion Matrix" in metrics_list:
       st.subheader("Confusion Matrix")
-      plot_confusion_matrix(model, x_test, y_test)
-      st.pyplot()
+      st.write(confusion_matrix(model, x_test, y_test))
    if "Classification Report" in metrics_list:
       st.subheader("Classification Report")
-      plot_classification_report(y_test, y_pred)
-      st.pyplot()
+      st.write(classification_report(y_test, y_pred))
          
 if classifier == "Logistic Regression":
     st.sidebar.subheader("Hyperparameters")
@@ -92,7 +90,7 @@ if classifier == "Logistic Regression":
         st.write("Accuracy: ", accuracy)
         #st.write("Precision: ", precision_score(y_test, y_pred))
         #st.write("Recall: ", recall_score(y_test, y_pred))
-        plot_metrics(metrics)
+        metrics(metrics)
 
 if classifier == "Random Forest":
     st.sidebar.subheader("Hyperparameters")
