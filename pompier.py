@@ -41,11 +41,6 @@ if choice_features == "yes":
       df = df[features]
       st.write(df)
 
-# Set target column
-if df is not None:
-   target_options = df.columns
-   target = st.sidebar.selectbox("Please choose target column", (target_options))
-
    
 if df is not None:
    df=df[df["Mobilised_Rank"]==1]
@@ -70,6 +65,13 @@ if Numbers_of_Pumps == "yes":
       df['NumPumpsAttending']=df['NumPumpsAttending'].replace([3,4,5,6,7,8,9,11,13], 3)
    
 
+# Set target column
+if df is not None:
+   target_options = df.columns
+   target = st.sidebar.selectbox("Please choose target column", (target_options))
+
+   
+   
 @st.cache(persist=True)
 #@st.cache(suppress_st_warning=True)
 def split(df):
