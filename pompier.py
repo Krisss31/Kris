@@ -79,7 +79,7 @@ def split(df):
       y = df[target]
       x = df.drop(columns=[target])
       test_size = st.sidebar.number_input("test_size", 0.05, 0.5, step=0.05)
-      x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.2)
+      x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=test_size)
       return x_train, x_test, y_train, y_test
 
 if df is not None:
@@ -87,7 +87,7 @@ if df is not None:
 
 @st.cache(persist= True)   
 st.sidebar.subheader("Choose classifier")
-classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
+classifier = st.sidebar.selectbox("Classifier", (" ", "Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
 
 @st.cache(persist= True)
 def metrics(metrics_list):
