@@ -32,12 +32,6 @@ df = file_selector()
       
 if st.sidebar.checkbox("Display data", False):
     st.write(df)
-
-# Set features
-#if df is not None:
-   #features_options = df.columns
-   #features = st.multiselect("Please choose the features including target variable that go into the model", features_options)
-   #df = df[features]
    
 choice_features = st.sidebar.multiselect("Do you want to choose the feature", ("yes", "no"))
 if choice_features == "yes":
@@ -54,16 +48,16 @@ if df is not None:
 
    
 if df is not None:
-   df=df[df['Mobilised_Rank']==1]
-   df = df.drop_duplicates(subset=['IncidentNumber'])
+   df=df[df["Mobilised_Rank"]==1]
+   df = df.drop_duplicates(subset=["IncidentNumber"])
 
    
-choice_features_dummiers = st.sidebar.multiselect("Do you want to make get_dummies", ("yes", "no"))
-if choice_features == "yes":
+choice_features_dummies = st.sidebar.multiselect("Do you want to make get_dummies", ("yes", "no"))
+if choice_features_dummies == "yes":
    if df is not None:
       features_options = df.columns
-      features_dummiers = st.multiselect("Please choose the features who want to get_dummies", features_options)
-      df = pd.get_dummies(df, columns = colonne)
+      features_dummies = st.multiselect("Please choose the features who want to get_dummies", features_options)
+      df = pd.get_dummies(df, columns = features_dummies)
       st.write(df)
   
 if df is not None:
@@ -71,7 +65,7 @@ if df is not None:
 
 
 Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
-if choice_features == "yes":
+if Numbers_of_Pumps == "yes":
    if df is not None:
       df['NumPumpsAttending']=df['NumPumpsAttending'].replace([3,4,5,6,7,8,9,11,13], 3)
    
