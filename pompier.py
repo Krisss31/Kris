@@ -70,10 +70,10 @@ classifier = st.sidebar.selectbox("Classifier", ("Logistic Regression", "Random 
 def metrics(metrics_list):
    if "Confusion Matrix" in metrics_list:
       st.subheader("Confusion Matrix")
-      return pd.crosstab(y_test, y_pred, rownames=['Realité'], colnames=['Prédiction'])
+      return st.table(pd.crosstab(y_test, y_pred, rownames=['Realité'], colnames=['Prédiction']))
    if "Classification Report" in metrics_list:
       st.subheader("Classification Report")
-      return classification_report(y_test, y_pred)
+      return st.table(classification_report(y_test, y_pred))
          
 if classifier == "Logistic Regression":
     st.sidebar.subheader("Hyperparameters")
