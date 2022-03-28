@@ -156,7 +156,7 @@ if classifier == "Random Forest":
     #st.write("Recall: ", recall_score(y_test, y_pred))
     metrics(metric)
     
-    def Num_pumps(model, property_type, Adress_qualifier, Incident):
+    def Num_pumps():
          property_type = st.sidebar.selectbox("Property Type:",df["PropertyType"].unique())
          Adress_qualifier = st.sidebar.selectbox("Adress Qualifier:",df["AdressQualifier"].unique())
          Incident = st.sidebar.selectbox("Incident:",df["IncidentType"].unique())
