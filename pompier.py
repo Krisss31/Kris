@@ -84,7 +84,6 @@ target = st.sidebar.selectbox("Please choose target column", target_options)
 
 df = df.astype(float)
 
-@st.cache(suppress_st_warning=True)
 if st.sidebar.checkbox("Do you want to reduce the numbers of pumps", False):
    if target == "NumPumpsAttending":
       P = st.sidebar.number_input("numbers of pumpes", 3, 5, step=1)
