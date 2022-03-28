@@ -116,10 +116,10 @@ x_train, x_test, y_train, y_test = split(df)
 st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", (" ", "Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
 
-st.sidebar.subheader("Choose data prediction")
-property_type = st.sidebar.selectbox("Property Type:",df["PropertyType"].unique())
-Adress_qualifier = st.sidebar.selectbox("Adress Qualifier:",df["AdressQualifier"].unique())
-Incident = st.sidebar.selectbox("Incident:",df["IncidentType"].unique())
+#st.sidebar.subheader("Choose data prediction")
+#property_type = st.sidebar.selectbox("Property Type:",df["PropertyType"].unique())
+#Adress_qualifier = st.sidebar.selectbox("Adress Qualifier:",df["AdressQualifier"].unique())
+#Incident = st.sidebar.selectbox("Incident:",df["IncidentType"].unique())
 
 
 def metrics(metrics_list):
