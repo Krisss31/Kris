@@ -83,7 +83,8 @@ target_options = df.columns
 target = st.sidebar.selectbox("Please choose target column", target_options)   
 
 df = df.astype(float)
-   
+
+@st.cache(suppress_st_warning=True)
 Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
 if Numbers_of_Pumps == "yes":
    if target == "NumPumpsAttending":
