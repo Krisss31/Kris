@@ -81,7 +81,7 @@ if st.sidebar.checkbox("Do you want to make get_dummies", False):
 # Set target column
 if df is not None:
    target_options = df.columns
-   target = st.sidebar.selectbox("Please choose target column", (target_options))   
+   target = st.sidebar.selectbox("Please choose target column", target_options)   
    
    
 Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
