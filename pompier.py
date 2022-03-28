@@ -101,7 +101,7 @@ if st.sidebar.checkbox("Do you want to reduce the numbers of pumps", False):
 def split(df):
       y = df[target]
       x = df.drop(columns=[target])
-      size = st.sidebar.slider("test_size", 0.05, 0.5)
+      size = st.sidebar.number_input("test_size", 0.05, 0.4, step = 0.05 )
       x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=size)
       return x_train, x_test, y_train, y_test
 
