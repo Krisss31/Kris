@@ -86,7 +86,7 @@ df = df.astype(float)
 
 if st.sidebar.checkbox("Do you want to reduce the numbers of pumps", False):
    if target == "NumPumpsAttending":
-      P = st.sidebar.number_input("numbers of pumpes", 3, 5, step=1)
+      P = st.sidebar.number_input("numbers of pumpes", 2, 5, step=1)
       df[target]=df[target].replace(range(P,15), P)
       st.write(df)
 
