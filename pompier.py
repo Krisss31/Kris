@@ -156,16 +156,15 @@ if classifier == "Random Forest":
     #st.write("Recall: ", recall_score(y_test, y_pred))
     metrics(metric)
     
-   def Num_pumps(model, property_type, Adress_qualifier, Incident):
-      property_type = st.sidebar.multiselect("Property Type:",df["PropertyType"].unique())
-      Adress_qualifier = st.sidebar.multiselect(Adress Qualifier:",df["AdressQualifier"].unique())
-      Incident = st.sidebar.multiselect("Incident:",df["IncidentType"].unique)
-      x = np.array([property_type,Adress_qualifier,Incident]).reshape(1,3)
-      x = pd.get_dummies(x)
-      return model.predict(x))
-   
-   result = Num_Pumps()
-   st.write(result)
+    def Num_pumps(model, property_type, Adress_qualifier, Incident):
+         property_type = st.sidebar.multiselect("Property Type:",df["PropertyType"].unique())
+         Adress_qualifier = st.sidebar.multiselect(Adress Qualifier:",df["AdressQualifier"].unique())
+         Incident = st.sidebar.multiselect("Incident:",df["IncidentType"].unique)
+         x = np.array([property_type,Adress_qualifier,Incident]).reshape(1,3)
+         x = pd.get_dummies(x)
+         return model.predict(x))
+    result = Num_Pumps()
+    st.write(result)
    
 if classifier == "DecisionTreeClassifier":
     st.sidebar.subheader("Hyperparameters")
