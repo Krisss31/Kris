@@ -78,10 +78,17 @@ if st.sidebar.checkbox("Do you want to make get_dummies", False):
    #df=df.drop(['IncidentNumber','Mobilised_Rank'], axis =1)
 
 
+# Set target column
+if df is not None:
+   target_options = df.columns
+   target = st.sidebar.selectbox("Please choose target column", (target_options))   
+   
+   
 Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
 if Numbers_of_Pumps == "yes":
-   df["NumPumpsAttending"]=df["NumPumpsAttending"].replace([3,4,5,6,7,8,9,11,13], 3)
-   st.write(df)
+   if target == "NumPumpsAttending":
+      df[target]=df[target].replace([3,4,5,6,7,8,9,11,13], 3)
+      st.write(df)
    
 
 # Set target column
