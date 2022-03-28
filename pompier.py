@@ -162,7 +162,7 @@ if classifier == "Random Forest":
          Incident = st.sidebar.multiselect("Incident:",df["IncidentType"].unique)
          x = np.array([property_type,Adress_qualifier,Incident]).reshape(1,3)
          x = pd.get_dummies(x)
-         return model.predict(x))
+         return model.predict(x)
     result = Num_Pumps()
     st.write(result)
    
