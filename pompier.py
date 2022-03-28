@@ -72,7 +72,7 @@ if st.sidebar.checkbox("Do you want to make get_dummies", False):
       #features_options = df.columns
       #features_dummies = st.multiselect("Please choose the features who want to get_dummies", features_options)
       #df = pd.get_dummies(df, columns = features_dummies)
-      "st.write(df)
+      #st.write(df)
 
 #if df is not None:
    #df=df.drop(['IncidentNumber','Mobilised_Rank'], axis =1)
