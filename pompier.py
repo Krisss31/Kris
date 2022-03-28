@@ -157,9 +157,9 @@ if classifier == "Random Forest":
     metrics(metric)
     
     def Num_pumps(model, property_type, Adress_qualifier, Incident):
-         property_type = st.sidebar.multiselect("Property Type:",df["PropertyType"].unique())
-         Adress_qualifier = st.sidebar.multiselect("Adress Qualifier:",df["AdressQualifier"].unique())
-         Incident = st.sidebar.multiselect("Incident:",df["IncidentType"].unique)
+         property_type = st.sidebar.selectbox("Property Type:",df["PropertyType"].unique())
+         Adress_qualifier = st.sidebar.selectbox("Adress Qualifier:",df["AdressQualifier"].unique())
+         Incident = st.sidebar.selectbox("Incident:",df["IncidentType"].unique)
          x = np.array([property_type,Adress_qualifier,Incident]).reshape(1,3)
          x = pd.get_dummies(x)
          return model.predict(x)
