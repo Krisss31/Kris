@@ -82,7 +82,7 @@ Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of 
 if Numbers_of_Pumps == "yes":
    if df is not None:
       df['NumPumpsAttending']=df['NumPumpsAttending'].replace([3,4,5,6,7,8,9,11,13], 3)
-       st.write(df)
+      st.write(df)
    
 
 # Set target column
