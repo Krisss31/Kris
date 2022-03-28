@@ -166,7 +166,7 @@ if classifier == "Random Forest":
     #st.write("Precision: ", precision_score(y_test, y_pred))
     #st.write("Recall: ", recall_score(y_test, y_pred))
     metrics(metric)
-    Num_pumps(model, property_type, Adress_qualifier, Incident))
+    Num_pumps(model, property_type, Adress_qualifier, Incident)
  
 
    
