@@ -107,11 +107,11 @@ def split(df):
 
 x_train, x_test, y_train, y_test = split(df)
 
-def Num_pumps(model, property_type, Adress_qualifier, Incident):
-   x = np.array([property_type,Adress_qualifier,Incident]).reshape(1,3)
-   x = pd.get_dummies(x)
-   result = model.predict(x)
-   return st.write(result)
+#def Num_pumps(model, property_type, Adress_qualifier, Incident):
+   #x = np.array([property_type,Adress_qualifier,Incident]).reshape(1,3)
+   #x = pd.get_dummies(x)
+   #result = model.predict(x)
+   #return st.write(result)
    
 st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", (" ", "Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
@@ -166,7 +166,7 @@ if classifier == "Random Forest":
     #st.write("Precision: ", precision_score(y_test, y_pred))
     #st.write("Recall: ", recall_score(y_test, y_pred))
     metrics(metric)
-    Num_pumps(model, property_type, Adress_qualifier, Incident)
+    #Num_pumps(model, property_type, Adress_qualifier, Incident)
  
 
    
