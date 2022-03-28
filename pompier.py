@@ -81,12 +81,13 @@ if st.sidebar.checkbox("Do you want to make get_dummies", False):
 # Set target column
 target_options = df.columns
 target = st.sidebar.selectbox("Please choose target column", target_options)   
-   
+
+df = df.astype(float)
    
 Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
 if Numbers_of_Pumps == "yes":
    if target == "NumPumpsAttending":
-      df[target]=df[target].replace([3,4,5,6,7,8,9,11,13], 3)
+      df[target]=df[target].replace([3,4,5,6,7,8,9,10,11,12,13], 3)
       st.write(df)
      
 @st.cache(persist=True)
