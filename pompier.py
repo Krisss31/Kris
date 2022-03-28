@@ -105,8 +105,7 @@ def split(df):
       x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=size)
       return x_train, x_test, y_train, y_test
 
-if df is not None:
-   x_train, x_test, y_train, y_test = split(df)
+x_train, x_test, y_train, y_test = split(df)
 
    
 st.sidebar.subheader("Choose classifier")
