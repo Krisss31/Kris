@@ -96,7 +96,7 @@ if st.sidebar.checkbox("Do you want to reduce the numbers of pumps", False):
       #df[target]=df[target].replace([3,4,5,6,7,8,9,11,13], 3)
       #st.write(df)
      
-@st.cache(persist=True)
+#@st.cache(persist=True)
 #@st.cache(suppress_st_warning=True)
 def split(df):
       y = df[target]
