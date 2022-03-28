@@ -107,6 +107,11 @@ def split(df):
 
 x_train, x_test, y_train, y_test = split(df)
 
+def Num_pumps(model, property_type, Adress_qualifier, Incident):
+   x = np.array([property_type,Adress_qualifier,Incident]).reshape(1,3)
+   x = pd.get_dummies(x)
+   result = model.predict(x)
+   return result
    
 st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", (" ", "Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
@@ -156,15 +161,11 @@ if classifier == "Random Forest":
     #st.write("Recall: ", recall_score(y_test, y_pred))
     metrics(metric)
     
-    def Num_pumps():
-         property_type = st.sidebar.selectbox("Property Type:",df["PropertyType"].unique())
-         Adress_qualifier = st.sidebar.selectbox("Adress Qualifier:",df["AdressQualifier"].unique())
-         Incident = st.sidebar.selectbox("Incident:",df["IncidentType"].unique())
-         x = np.array([property_type,Adress_qualifier,Incident]).reshape(1,3)
-         x = pd.get_dummies(x)
-         return model.predict(x)
-    result = Num_pumps()
-    st.write(result)
+    property_type = st.sidebar.selectbox("Property Type:",df["PropertyType"].unique())
+    Adress_qualifier = st.sidebar.selectbox("Adress Qualifier:",df["AdressQualifier"].unique())
+    Incident = st.sidebar.selectbox("Incident:",df["IncidentType"].unique())
+    st.write(Num_pumps(model, property_type, Adress_qualifier, Incident))
+ 
    
 if classifier == "DecisionTreeClassifier":
     st.sidebar.subheader("Hyperparameters")
