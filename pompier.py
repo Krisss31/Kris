@@ -63,7 +63,7 @@ if st.sidebar.checkbox("Do you want to make get_dummies", False):
    features_options = df.columns
    features_dummies = st.multiselect("Please choose the features who want to get_dummies", features_options)
    df = pd.get_dummies(df, columns = features_dummies)
-   #st.write(df)
+   st.write(df)
    
    
 #choice_features_dummies = st.sidebar.multiselect("Do you want to make get_dummies", ("yes", "no"))
@@ -82,6 +82,7 @@ Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of 
 if Numbers_of_Pumps == "yes":
    if df is not None:
       df['NumPumpsAttending']=df['NumPumpsAttending'].replace([3,4,5,6,7,8,9,11,13], 3)
+       st.write(df)
    
 
 # Set target column
