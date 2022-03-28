@@ -85,11 +85,17 @@ target = st.sidebar.selectbox("Please choose target column", target_options)
 df = df.astype(float)
 
 @st.cache(suppress_st_warning=True)
-Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
-if Numbers_of_Pumps == "yes":
+if st.sidebar.checkbox("Do you want to reduce the numbers of pumps", False):
    if target == "NumPumpsAttending":
-      df[target]=df[target].replace([3,4,5,6,7,8,9,10,11,12,13], 3)
+      P = st.sidebar.number_input("numbers of pumpes", 3, 5, step=1)
+      df[target]=df[target].replace(range(P,15), P)
       st.write(df)
+
+#Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
+#if Numbers_of_Pumps == "yes":
+   #if target == "NumPumpsAttending":
+      #df[target]=df[target].replace([3,4,5,6,7,8,9,11,13], 3)
+      #st.write(df)
      
 @st.cache(persist=True)
 #@st.cache(suppress_st_warning=True)
