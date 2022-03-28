@@ -80,7 +80,7 @@ if st.sidebar.checkbox("Do you want to make get_dummies", False):
 
 Numbers_of_Pumps = st.sidebar.multiselect("Do you want to reduce the numbers of pumps to 3 pumps?", ("yes", "no"))
 if Numbers_of_Pumps == "yes":
-   df['NumPumpsAttending']=df['NumPumpsAttending'].replace([3,4,5,6,7,8,9,11,13], 3)
+   df["NumPumpsAttending"]=df["NumPumpsAttending"].replace([3,4,5,6,7,8,9,11,13], 3)
    st.write(df)
    
 
