@@ -111,10 +111,16 @@ def Num_pumps(model, property_type, Adress_qualifier, Incident):
    x = np.array([property_type,Adress_qualifier,Incident]).reshape(1,3)
    x = pd.get_dummies(x)
    result = model.predict(x)
-   return result
+   return st.write(result)
    
 st.sidebar.subheader("Choose classifier")
 classifier = st.sidebar.selectbox("Classifier", (" ", "Logistic Regression", "Random Forest", "DecisionTreeClassifier"))
+
+st.sidebar.subheader("Choose data prediction")
+property_type = st.sidebar.selectbox("Property Type:",df["PropertyType"].unique())
+Adress_qualifier = st.sidebar.selectbox("Adress Qualifier:",df["AdressQualifier"].unique())
+Incident = st.sidebar.selectbox("Incident:",df["IncidentType"].unique())
+
 
 def metrics(metrics_list):
    if "Confusion Matrix" in metrics_list:
@@ -160,12 +166,9 @@ if classifier == "Random Forest":
     #st.write("Precision: ", precision_score(y_test, y_pred))
     #st.write("Recall: ", recall_score(y_test, y_pred))
     metrics(metric)
-    
-    property_type = st.sidebar.selectbox("Property Type:",df["PropertyType"].unique())
-    Adress_qualifier = st.sidebar.selectbox("Adress Qualifier:",df["AdressQualifier"].unique())
-    Incident = st.sidebar.selectbox("Incident:",df["IncidentType"].unique())
-    st.write(Num_pumps(model, property_type, Adress_qualifier, Incident))
+    Num_pumps(model, property_type, Adress_qualifier, Incident))
  
+
    
 if classifier == "DecisionTreeClassifier":
     st.sidebar.subheader("Hyperparameters")
