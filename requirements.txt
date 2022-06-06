@@ -5,3 +5,4 @@ Flask
 flask-cors
 pyforest
 joblib
+scikit-learn
