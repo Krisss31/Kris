@@ -3,7 +3,8 @@ import numpy as np
 import pandas as pd
 import joblib
 import streamlit.components.v1 as componenets
-
+import sklearn
+from sklearn.ensemble import GradientBoostingClassifier
 
 model = joblib.load('Number_of_Pumps_XGB.joblib')
 data = pd.read_csv('colonne_camion.csv')
