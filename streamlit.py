@@ -170,8 +170,7 @@ AddressQualifier = ['Open land/water - nearest gazetteer location',
        'In street remote from gazetteer location',
        'Railway land or rolling stock']
 
-IncidentCategory = 'Effecting entry/exit', 'Secondary Fire', 'AFA', 'Lift Release',
-       'Flooding', 'Primary Fire', 'RTC', 'Advice Only',
+IncidentCategory = ['Effecting entry/exit', 'Secondary Fire', 'AFA', 'Lift Release','Flooding', 'Primary Fire', 'RTC', 'Advice Only',
        'Other rescue/release of persons', 'Medical Incident',
        'Assist other agencies', 'Evacuation (no fire)',
        'Spills and Leaks (not RTC)', 'Chimney Fire',
@@ -180,11 +179,11 @@ IncidentCategory = 'Effecting entry/exit', 'Secondary Fire', 'AFA', 'Lift Releas
        'Animal assistance incidents', 'Other Transport incident',
        'Stand By', 'Rescue or evacuation from water', 'Late Call',
        'Medical Incident - Co-responder', 'Water provision',
-       'Use of Special Operations Room'
+       'Use of Special Operations Room']
 
-IncidentType = 'Domestic Incidents', 'Fire', 'Major Environmental Disasters',
+IncidentType = ['Domestic Incidents', 'Fire', 'Major Environmental Disasters',
        'Local Emergencies', 'Prior Arrangement',
-       'Use of Special Operations Room'
+       'Use of Special Operations Room']
     
 if st.sidebar.checkbox("Do you want to choose the Property_type", False):
    features_options = Property_type
