@@ -2,9 +2,7 @@ import streamlit as st
 import numpy as np 
 import pandas as pd
 from joblib import load
-from xgboost.sklearn import XGBModel
-import xgboost as xgb
-from xgboost import XGBClassifier
+
 
 model = load('Number_of_Pumps_XGB.joblib')
 data = pd.read_csv('colonne_camion.csv')
