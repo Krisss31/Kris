@@ -186,4 +186,9 @@ IncidentType = 'Domestic Incidents', 'Fire', 'Major Environmental Disasters',
        'Local Emergencies', 'Prior Arrangement',
        'Use of Special Operations Room'
     
+if st.sidebar.checkbox("Do you want to choose the Property_type", False):
+   features_options = Property_type
+   features = st.multiselect("Please choose the features including target variable that go into the model", features_options)
+   data['features'] = 1
+   st.write(data)
 
