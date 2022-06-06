@@ -1,6 +1,6 @@
-matplotlib
+matplotlib == 3.5.0
 pandas
-scikit-learn
+scikit-learn == 1.0.2
 streamlit
-xgboost
+xgboost == 1.6.1
 numba
