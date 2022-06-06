@@ -4,7 +4,7 @@ import pandas as pd
 from joblib import load
 
 
-model = load('Kris/Number_of_Pumps_XGB.joblib')
+model = load('Number_of_Pumps_XGB.joblib')
 data = pd.read_csv('colonne_camion.csv')
 
 Property_type = ['Park ', 'Purpose Built Flats/Maisonettes - Up to 3 storeys ',
