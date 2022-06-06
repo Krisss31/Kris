@@ -7,7 +7,7 @@ import sklearn
 import xgboost as xgb
 
 model_xgb = xgb.Booster()
-model_xgb.load_model('Number_of_Pumps_XGB.json')
+model_xgb.load('Number_of_Pumps_XGB.json')
 
 data = pd.read_csv('colonne_camion.csv')
 
