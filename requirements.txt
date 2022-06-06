@@ -7,3 +7,4 @@ pyforest
 joblib
 scikit-learn
 scipy
+xgboost
