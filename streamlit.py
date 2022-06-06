@@ -4,9 +4,11 @@ import pandas as pd
 import joblib
 import streamlit.components.v1 as componenets
 import sklearn
-import xgboost
+import xgboost as xgb
 
-model = joblib.load('Number_of_Pumps_XGB.joblib')
+model_xgb = xgb.Booster()
+model_xgb.load_model('Number_of_Pumps_XGB.json')
+
 data = pd.read_csv('colonne_camion.csv')
 
 Property_type = ['Park ', 'Purpose Built Flats/Maisonettes - Up to 3 storeys ',
