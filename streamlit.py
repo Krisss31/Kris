@@ -2,10 +2,10 @@ import streamlit as st
 import numpy as np 
 import pandas as pd
 import joblib
-from joblib import load
+import streamlit.components.v1 as componenets
 
 
-model = load('Number_of_Pumps_XGB.joblib')
+model = joblib.load('Number_of_Pumps_XGB.joblib')
 data = pd.read_csv('colonne_camion.csv')
 
 Property_type = ['Park ', 'Purpose Built Flats/Maisonettes - Up to 3 storeys ',
