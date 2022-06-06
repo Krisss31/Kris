@@ -15,8 +15,8 @@ from sklearn.metrics import accuracy_score
 from joblib import dump, load
 
 
-model = load('/content/drive/MyDrive/Projet Pompier/Github/structure_finale/data_outputs/ml_nb_pumps/Number_of_Pumps_XGB.joblib')
-data = pd.read_csv('/content/drive/MyDrive/Projet Pompier/Dossier Christophe/Algorithme Machine Learning/colonne_camion.csv')
+model = load('Number_of_Pumps_XGB.joblib')
+data = pd.read_csv('colonne_camion.csv')
 
 Property_type = ['Park ', 'Purpose Built Flats/Maisonettes - Up to 3 storeys ',
        'Tree scrub ', 'Hospital ', 'House - single occupancy ',
